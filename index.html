@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light only" />
 <meta name="supported-color-schemes" content="light" />
-<title>Carol's Registry — A Considered Beginning</title>
+<title>A Note for Carol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
@@ -23,9 +23,9 @@
   html {
     background: #ffffff;
     color-scheme: light only;
+    scroll-behavior: smooth;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -47,16 +47,15 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .container {
-    max-width: 1080px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 32px;
     position: relative;
     z-index: 2;
   }
   header {
-    padding: 80px 0 60px;
+    padding: 96px 0 64px;
     border-bottom: 1px solid var(--rule);
-    position: relative;
   }
   .eyebrow {
     font-size: 11px;
@@ -68,10 +67,10 @@
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(48px, 9vw, 112px);
+    font-size: clamp(44px, 8vw, 88px);
     line-height: 0.95;
     letter-spacing: -0.03em;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     font-variation-settings: "SOFT" 50;
   }
   h1 em {
@@ -79,201 +78,204 @@
     font-weight: 400;
     color: var(--accent);
   }
-  .lede {
+  .note {
     font-family: 'Fraunces', serif;
     font-size: clamp(18px, 2vw, 22px);
     font-weight: 300;
-    color: var(--muted);
-    max-width: 560px;
-    line-height: 1.45;
-    font-style: italic;
-  }
-  .meta-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 56px;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .meta-item {
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-  .meta-item strong {
-    display: block;
     color: var(--ink);
-    font-weight: 500;
-    font-size: 14px;
-    margin-top: 4px;
-    letter-spacing: 0;
+    max-width: 580px;
+    line-height: 1.55;
   }
-  .progress-strip {
+  .note p { margin-bottom: 20px; }
+  .note p:last-child { margin-bottom: 0; }
+  .signature {
     margin-top: 40px;
-    height: 1px;
-    background: var(--rule);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--muted);
+  }
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+  .sec-head {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+    align-items: baseline;
+  }
+  .sec-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 40px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .sec-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(26px, 3.5vw, 36px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .sec-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+  .body-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 580px;
+  }
+  .body-text:last-child { margin-bottom: 0; }
+  .body-text strong { font-weight: 500; color: var(--ink); }
+  .body-text em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+  }
+  ol.steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 28px 0;
+  }
+  ol.steps li {
+    counter-increment: step;
+    padding: 20px 0 20px 56px;
+    border-top: 1px solid var(--rule);
     position: relative;
-    overflow: hidden;
+    font-size: 15px;
+    line-height: 1.6;
   }
-  .progress-fill {
+  ol.steps li:last-child { border-bottom: 1px solid var(--rule); }
+  ol.steps li::before {
+    content: counter(step, decimal-leading-zero);
     position: absolute;
-    inset: 0;
-    width: 0;
-    background: var(--accent);
-    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    left: 0;
+    top: 22px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
   }
-  .progress-text {
-    margin-top: 12px;
+  ol.steps li strong {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  ol.steps li code {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    background: var(--paper);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  .button-row {
+    margin: 32px 0 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 24px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+  .btn.secondary {
+    background: transparent;
+    color: var(--ink);
+  }
+  .btn.secondary:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .detail-card {
+    background: var(--paper);
+    padding: 28px 32px;
+    margin-top: 24px;
+    border-left: 2px solid var(--accent);
+  }
+  .detail-card dl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px 24px;
+    font-size: 15px;
+  }
+  .detail-card dt {
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
-    display: flex;
-    justify-content: space-between;
+    padding-top: 2px;
   }
-  .progress-text span:last-child {
-    font-variant-numeric: tabular-nums;
-  }
-  section.category {
-    padding: 72px 0 16px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .cat-head {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 32px;
-    margin-bottom: 48px;
-    align-items: baseline;
-  }
-  .cat-num {
+  .detail-card dd {
     font-family: 'Fraunces', serif;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .detail-card dd em {
+    color: var(--muted);
     font-style: italic;
-    font-weight: 300;
-    font-size: 48px;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .cat-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(28px, 4vw, 40px);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-  .cat-desc {
-    font-size: 14px;
-    color: var(--muted);
-    margin-top: 8px;
-    max-width: 480px;
-  }
-  .items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 0;
-    border-top: 1px solid var(--rule);
-  }
-  .item {
-    padding: 24px 28px 24px 0;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 28px 1fr auto;
-    gap: 16px;
-    align-items: start;
-    cursor: pointer;
-    transition: background 0.3s ease, padding 0.3s ease;
-    position: relative;
-  }
-  .item:hover {
-    background: var(--paper);
-    padding-left: 12px;
-  }
-  .checkbox {
-    width: 18px;
-    height: 18px;
-    border: 1px solid var(--ink);
-    border-radius: 50%;
-    margin-top: 4px;
-    transition: all 0.25s ease;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .item.claimed .checkbox {
-    background: var(--check);
-    border-color: var(--check);
-  }
-  .item.claimed .checkbox::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 2px;
-    width: 5px;
-    height: 9px;
-    border: solid var(--bg);
-    border-width: 0 1.5px 1.5px 0;
-    transform: rotate(45deg);
-  }
-  .item-body { min-width: 0; }
-  .item-name {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.005em;
-    transition: text-decoration 0.3s ease;
-  }
-  .item.claimed .item-name {
-    text-decoration: line-through;
-    text-decoration-color: var(--muted);
-    color: var(--muted);
-  }
-  .item-note {
     font-size: 13px;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 300;
+  }
+  .callout {
+    background: var(--paper);
+    padding: 24px 28px;
+    margin: 28px 0;
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--muted);
-    margin-top: 4px;
     font-style: italic;
     font-family: 'Fraunces', serif;
-    line-height: 1.4;
   }
-  .price-tier {
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-top: 6px;
-    font-variant-numeric: tabular-nums;
+  .callout strong {
+    font-style: normal;
+    color: var(--ink);
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
   }
   footer {
-    padding: 96px 0 64px;
+    padding: 80px 0 64px;
     text-align: center;
   }
   .footer-mark {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
   .footer-note {
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .reset {
-    margin-top: 32px;
-    background: none;
-    border: 1px solid var(--rule);
-    color: var(--muted);
-    font-family: inherit;
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .reset:hover {
-    border-color: var(--ink);
-    color: var(--ink);
+    color: var(--muted);
   }
   @keyframes rise {
     from { opacity: 0; transform: translateY(12px); }
@@ -282,14 +284,18 @@
   header > * { animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
   header .eyebrow { animation-delay: 0.05s; }
   header h1 { animation-delay: 0.15s; }
-  header .lede { animation-delay: 0.3s; }
-  header .meta-row { animation-delay: 0.45s; }
+  header .note { animation-delay: 0.3s; }
+  header .signature { animation-delay: 0.5s; }
   @media (max-width: 640px) {
     .container { padding: 0 24px; }
-    header { padding: 56px 0 40px; }
-    .cat-head { grid-template-columns: 1fr; gap: 12px; }
-    .cat-num { font-size: 32px; }
-    .items { grid-template-columns: 1fr; }
+    header { padding: 64px 0 48px; }
+    .sec-head { grid-template-columns: 1fr; gap: 8px; }
+    .sec-num { font-size: 28px; }
+    .detail-card { padding: 24px; }
+    .detail-card dl { grid-template-columns: 1fr; gap: 4px 0; }
+    .detail-card dt { padding-top: 12px; }
+    .button-row { flex-direction: column; align-items: stretch; }
+    .btn { text-align: center; }
   }
 </style>
 </head>
@@ -298,184 +304,130 @@
 <div class="container">
 
   <header>
-    <div class="eyebrow">A Registry · Compiled with Care</div>
-    <h1>For the<br>littlest <em>arrival.</em></h1>
-    <p class="lede">A short, considered list for a modern parent who believes — like the rest of us do — that things you live with daily ought to be quietly beautiful.</p>
-    <div class="meta-row">
-      <div class="meta-item">Curated for<strong>Carol</strong></div>
-      <div class="meta-item">Aesthetic<strong>Less, but better.</strong></div>
-      <div class="meta-item">Categories<strong>Seven</strong></div>
-      <div class="meta-item">Tap to claim<strong>↓</strong></div>
+    <div class="eyebrow">A Welcome Packet · For Carol</div>
+    <h1>A small <em>kit</em><br>for the journey.</h1>
+    <div class="note">
+      <p>I put together a few things to make this easier — the gift guide you've seen, your registry on Zola, and a tiny browser tool that lets you add anything from anywhere on the internet to that registry with a single click.</p>
+      <p>None of it is required. Use what's useful, ignore what isn't. The whole point is that the practical stuff fades into the background so the rest of it — the actual having-a-baby part — can take up the room it deserves.</p>
+      <p>Anything that breaks, anything that confuses, just text me. I'll figure it out.</p>
     </div>
-    <div class="progress-strip"><div class="progress-fill" id="progress"></div></div>
-    <div class="progress-text">
-      <span>Claimed</span>
-      <span><span id="claimed-count">0</span> / <span id="total-count">0</span></span>
-    </div>
+    <div class="signature">— Justin</div>
   </header>
 
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">01</div>
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">01</div>
       <div>
-        <h2 class="cat-title">Sleep & Nursery</h2>
-        <p class="cat-desc">Where the days begin and end. Quiet, dim, and unfussy.</p>
+        <h2 class="sec-title">The Gift Guide</h2>
+        <div class="sec-sub">A curated starting point.</div>
       </div>
     </div>
-    <div class="items">
-      <div class="item" data-tier="Premium"><div class="checkbox"></div><div class="item-body"><div class="item-name">Nanit Pro Monitor</div><div class="item-note">A camera you don't mind seeing on the wall.</div></div><div class="price-tier">Premium</div></div>
-      <div class="item" data-tier="Investment"><div class="checkbox"></div><div class="item-body"><div class="item-name">Snoo Smart Bassinet</div><div class="item-note">Or the Babybjörn Cradle for a calmer alternative.</div></div><div class="price-tier">Investment</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Hatch Rest Sound Machine</div><div class="item-note">White noise and a glow, in one small object.</div></div><div class="price-tier">Mid</div></div>
+    <p class="body-text">A short list of well-designed essentials, organized into seven categories. Tap any item to save it for yourself — those saves are private and live in your browser only. Use it as a shortlist to feed into Zola, or just as a reference when people ask "what do you actually need?"</p>
+    <div class="button-row">
+      <a href="guide.html" class="btn">Open the Gift Guide</a>
     </div>
   </section>
 
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">02</div>
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">02</div>
       <div>
-        <h2 class="cat-title">Feeding</h2>
-        <p class="cat-desc">Vessels, bibs, and the small rituals of nourishment.</p>
+        <h2 class="sec-title">Your Zola Registry</h2>
+        <div class="sec-sub">Where the actual list lives.</div>
       </div>
     </div>
-    <div class="items">
-      <div class="item" data-tier="Easy"><div class="checkbox"></div><div class="item-body"><div class="item-name">Bibs Pacifiers</div><div class="item-note">Danish, minimalist, in colors you'd actually choose.</div></div><div class="price-tier">Easy</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Doddle &amp; Co or Boon Nursh Bottles</div><div class="item-note">Soft silicone, none of the plastic-toy energy.</div></div><div class="price-tier">Mid</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Ezpz Placemat &amp; Bowl Set</div><div class="item-note">One piece. Suctions to the table. Solves a lot.</div></div><div class="price-tier">Mid</div></div>
-      <div class="item" data-tier="Easy"><div class="checkbox"></div><div class="item-body"><div class="item-name">Mushie or Bumkins Bibs</div><div class="item-note">Earth-toned, washable, unobtrusive.</div></div><div class="price-tier">Easy</div></div>
+    <p class="body-text">Zola handles the real registry mechanics — guests buying, shipping, thank-you tracking, all of it. You log in with the email you used to sign up.</p>
+    <div class="callout">
+      <strong>A note on security:</strong> I didn't include your password here on purpose. If you ever need to reset it, Zola will email you a link from the login page.
+    </div>
+    <div class="button-row">
+      <a href="https://www.zola.com/login" class="btn" target="_blank" rel="noopener">Sign in to Zola</a>
+      <a href="#" class="btn secondary" id="registry-link" target="_blank" rel="noopener">View Public Registry</a>
     </div>
   </section>
 
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">03</div>
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">03</div>
       <div>
-        <h2 class="cat-title">Bath & Care</h2>
-        <p class="cat-desc">For the small, daily acts of tending.</p>
+        <h2 class="sec-title">The Chrome Extension</h2>
+        <div class="sec-sub">Add anything from anywhere, in one click.</div>
       </div>
     </div>
-    <div class="items">
-      <div class="item" data-tier="Easy"><div class="checkbox"></div><div class="item-body"><div class="item-name">Frida Baby Essentials Kit</div><div class="item-note">The NoseFrida is iconic for a reason.</div></div><div class="price-tier">Easy</div></div>
-      <div class="item" data-tier="Easy"><div class="checkbox"></div><div class="item-body"><div class="item-name">Tubby Todd All-Over Ointment</div><div class="item-note">A jar people quietly become loyal to.</div></div><div class="price-tier">Easy</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Pehr or Quincy Mae Hooded Towels</div><div class="item-note">Soft, neutral, the kind that age beautifully.</div></div><div class="price-tier">Mid</div></div>
+    <p class="body-text">This is the small magic trick. Once installed, a little button sits in your browser. You're browsing a beautiful crib on a Danish design site, you click the button, it goes onto your registry. Same for Etsy, the brand's own DTC site, a small shop you stumbled into — anywhere.</p>
+
+    <ol class="steps">
+      <li>
+        <strong>Open Chrome on a computer.</strong>
+        The extension only installs on desktop Chrome — not on your phone. Once installed, your registry stays in sync across devices.
+      </li>
+      <li>
+        <strong>Visit the Chrome Web Store page.</strong>
+        Go to <code>chromewebstore.google.com</code> and search for <em>"Add to Zola Baby Button"</em>. Make sure it's the <em>Baby</em> one, not the wedding version.
+      </li>
+      <li>
+        <strong>Click "Add to Chrome."</strong>
+        A small popup will confirm — click "Add extension." It installs in a few seconds.
+      </li>
+      <li>
+        <strong>Pin it to your toolbar.</strong>
+        Click the little puzzle-piece icon in the top-right of Chrome. Find "Add to Zola Baby Button" in the list and click the pin icon next to it so it stays visible.
+      </li>
+      <li>
+        <strong>Sign in once.</strong>
+        Click the new icon. It'll ask you to sign in with your Zola credentials. You should only need to do this the first time (in theory — see note below).
+      </li>
+      <li>
+        <strong>Try it out.</strong>
+        Go to any product page on the internet. Click the icon. A small panel opens, you can edit the product name and details, then click "Add to Registry." Done.
+      </li>
+    </ol>
+
+    <div class="callout">
+      <strong>If the extension acts up:</strong> Zola has a backup method. On any product page, copy the URL, then in your Zola registry go to <em>"Add Gifts" → "Add from Another Store"</em> and paste the link there. Same result, two more clicks.
     </div>
   </section>
 
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">04</div>
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">04</div>
       <div>
-        <h2 class="cat-title">Diapering</h2>
-        <p class="cat-desc">The unglamorous made graceful.</p>
+        <h2 class="sec-title">How the Shower Works</h2>
+        <div class="sec-sub">The practical details.</div>
       </div>
     </div>
-    <div class="items">
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Ubbi Diaper Pail</div><div class="item-note">Steel. No plastic liner. Genuinely good-looking.</div></div><div class="price-tier">Mid</div></div>
-      <div class="item" data-tier="Subscribe"><div class="checkbox"></div><div class="item-body"><div class="item-name">Coterie or Dyper Diapers</div><div class="item-note">A subscription that quietly disappears into the routine.</div></div><div class="price-tier">Subscribe</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Esembly Cloth Wipes</div><div class="item-note">If she's the cloth-wipe type. Many are.</div></div><div class="price-tier">Mid</div></div>
+    <p class="body-text">All the logistics in one place, so you're not hunting through texts.</p>
+    <div class="detail-card">
+      <dl>
+        <dt>Date</dt>
+        <dd>[ Date here ] <em>e.g. Saturday, June 14</em></dd>
+        <dt>Time</dt>
+        <dd>[ Time here ] <em>e.g. 2:00 – 5:00 pm</em></dd>
+        <dt>Location</dt>
+        <dd>[ Venue + address ]</dd>
+        <dt>Theme</dt>
+        <dd>[ Theme or dress code, if any ]</dd>
+        <dt>Host</dt>
+        <dd>[ Who's hosting / point of contact ]</dd>
+        <dt>RSVP</dt>
+        <dd>[ How to RSVP and by when ]</dd>
+      </dl>
     </div>
-  </section>
-
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">05</div>
-      <div>
-        <h2 class="cat-title">On the Go</h2>
-        <p class="cat-desc">For leaving the house, which one does, eventually.</p>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item" data-tier="Investment"><div class="checkbox"></div><div class="item-body"><div class="item-name">Uppababy Vista or Bugaboo Fox Stroller</div><div class="item-note">Either way, an heirloom-quality piece of engineering.</div></div><div class="price-tier">Investment</div></div>
-      <div class="item" data-tier="Investment"><div class="checkbox"></div><div class="item-body"><div class="item-name">Doona Car Seat</div><div class="item-note">Folds into a stroller. Solves city life.</div></div><div class="price-tier">Investment</div></div>
-      <div class="item" data-tier="Premium"><div class="checkbox"></div><div class="item-body"><div class="item-name">Béis or Fawn Design Diaper Bag</div><div class="item-note">Looks like a bag. Carries like a diaper bag.</div></div><div class="price-tier">Premium</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Solly Baby or Wildbird Ring Sling</div><div class="item-note">Soft, gauzy, in the right hands almost a garment.</div></div><div class="price-tier">Mid</div></div>
-    </div>
-  </section>
-
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">06</div>
-      <div>
-        <h2 class="cat-title">Play & Soothing</h2>
-        <p class="cat-desc">Objects with quiet intention.</p>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item" data-tier="Premium"><div class="checkbox"></div><div class="item-body"><div class="item-name">Lalo Wooden Play Gym</div><div class="item-note">Pieces come off. Leaves the room when not in use.</div></div><div class="price-tier">Premium</div></div>
-      <div class="item" data-tier="Subscribe"><div class="checkbox"></div><div class="item-body"><div class="item-name">Lovevery Play Kits Subscription</div><div class="item-note">Stage-appropriate, beautifully made, mercifully curated.</div></div><div class="price-tier">Subscribe</div></div>
-      <div class="item" data-tier="Easy"><div class="checkbox"></div><div class="item-body"><div class="item-name">Jellycat Stuffed Animal</div><div class="item-note">The classic gift. There's a reason.</div></div><div class="price-tier">Easy</div></div>
-    </div>
-  </section>
-
-  <section class="category">
-    <div class="cat-head">
-      <div class="cat-num">07</div>
-      <div>
-        <h2 class="cat-title">Wardrobe Basics</h2>
-        <p class="cat-desc">What lives closest to the skin.</p>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Quincy Mae Onesies</div><div class="item-note">Bamboo. Whisper-soft. The neutrals are perfect.</div></div><div class="price-tier">Mid</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Pehr Sleep Sacks</div><div class="item-note">Patterns that work in any nursery.</div></div><div class="price-tier">Mid</div></div>
-      <div class="item" data-tier="Mid"><div class="checkbox"></div><div class="item-body"><div class="item-name">Kyte Baby Bamboo Set</div><div class="item-note">For the days you want softness above everything.</div></div><div class="price-tier">Mid</div></div>
-    </div>
+    <p class="body-text" style="margin-top: 28px;"><em>I'll update these details as we lock them in. If you spot anything wrong or want to change something, just say.</em></p>
   </section>
 
   <footer>
     <div class="footer-mark">— with love —</div>
-    <div class="footer-note">A registry compiled for Carol</div>
-    <button class="reset" id="reset">Reset claimed items</button>
+    <div class="footer-note">Compiled for Carol · Made by Justin</div>
   </footer>
 
 </div>
 
 <script>
-  const items = document.querySelectorAll('.item');
-  const progressFill = document.getElementById('progress');
-  const claimedCount = document.getElementById('claimed-count');
-  const totalCount = document.getElementById('total-count');
-  const resetBtn = document.getElementById('reset');
-  const STORAGE_KEY = 'carol-registry-claimed';
-
-  totalCount.textContent = items.length;
-
-  // Load claimed state
-  let claimed = new Set();
-  try {
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    claimed = new Set(stored);
-  } catch (e) {}
-
-  function updateUI() {
-    items.forEach((item, i) => {
-      if (claimed.has(i)) item.classList.add('claimed');
-      else item.classList.remove('claimed');
-    });
-    const pct = items.length ? (claimed.size / items.length) * 100 : 0;
-    progressFill.style.width = pct + '%';
-    claimedCount.textContent = claimed.size;
-  }
-
-  function persist() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...claimed])); } catch (e) {}
-  }
-
-  items.forEach((item, i) => {
-    item.addEventListener('click', () => {
-      if (claimed.has(i)) claimed.delete(i);
-      else claimed.add(i);
-      updateUI();
-      persist();
-    });
-  });
-
-  resetBtn.addEventListener('click', () => {
-    claimed.clear();
-    updateUI();
-    persist();
-  });
-
-  updateUI();
+  // Placeholder for the public Zola registry URL — replace when known
+  const registryUrl = 'https://www.zola.com/baby-registry/'; // TODO: replace with Carol's actual public registry URL
+  const link = document.getElementById('registry-link');
+  if (link) link.href = registryUrl;
 </script>
 
 </body>

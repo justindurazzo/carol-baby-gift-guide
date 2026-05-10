@@ -1,0 +1,94 @@
+{
+  "nanit-pro": {
+    "image": "images/nanit-pro.jpg",
+    "url": "https://www.nanit.com/products/smart-baby-monitor"
+  },
+  "snoo-bassinet": {
+    "image": "images/snoo-bassinet.jpg",
+    "url": "https://www.happiestbaby.com/products/snoo-smart-bassinet"
+  },
+  "hatch-rest": {
+    "image": "images/hatch-rest.jpg",
+    "url": "https://www.hatch.co/rest-second-gen"
+  },
+  "bibs-pacifiers": {
+    "image": "images/bibs-pacifiers.jpg",
+    "url": "https://us.bibsworld.com/collections/pacifiers"
+  },
+  "boon-nursh": {
+    "image": "images/boon-nursh.jpg",
+    "url": "https://booninc.com/boon-nursh-reusable-baby-bottles-with-platinum-food-safe-silicone-1-pack-8-oz/"
+  },
+  "ezpz-mini-mat": {
+    "image": "images/ezpz-mini-mat.jpg",
+    "url": "https://ezpzfun.com/products/mini-mat"
+  },
+  "mushie-bibs": {
+    "image": "images/mushie-bibs.jpg",
+    "url": "https://mushie.com/products/silicone-baby-bib"
+  },
+  "frida-baby-kit": {
+    "image": "images/frida-baby-kit.jpg",
+    "url": "https://frida.com/products/baby-basics-kit-youll-actually-use"
+  },
+  "tubby-todd-ointment": {
+    "image": "images/tubby-todd-ointment.jpg",
+    "url": "https://tubbytodd.com/products/all-over-ointment"
+  },
+  "pehr-hooded-towel": {
+    "image": "images/pehr-hooded-towel.jpg",
+    "url": "https://pehr.com/products/striped-hooded-towel"
+  },
+  "ubbi-diaper-pail": {
+    "image": "images/ubbi-diaper-pail.jpg",
+    "url": "https://ubbiworld.com/products/ubbi-diaper-pail"
+  },
+  "coterie-diapers": {
+    "image": "images/coterie-diapers.jpg",
+    "url": "https://www.coterie.com/products/the-diaper"
+  },
+  "esembly-wipes": {
+    "image": "images/esembly-wipes.jpg",
+    "url": "https://esemblybaby.com/products/wipe-ups"
+  },
+  "uppababy-vista": {
+    "image": "images/uppababy-vista.jpg",
+    "url": "https://uppababy.com/strollers/full-size/vista-v3/greyson/"
+  },
+  "doona-carseat": {
+    "image": "images/doona-carseat.jpg",
+    "url": "https://www.doona.com/en-us/car-seat-stroller/collections/doona-nitro-black"
+  },
+  "beis-diaper-bag": {
+    "image": "images/beis-diaper-bag.jpg",
+    "url": "https://beistravel.com/products/the-ultimate-diaper-backpack-in-black"
+  },
+  "wildbird-sling": {
+    "image": "images/wildbird-sling.jpg",
+    "url": "https://wildbird.co/products/fawn-linen-sling"
+  },
+  "lalo-play-gym": {
+    "image": "images/lalo-play-gym.jpg",
+    "url": "https://www.meetlalo.com/products/the-play-gym-1"
+  },
+  "lovevery-play-kits": {
+    "image": "images/lovevery-play-kits.jpg",
+    "url": "https://lovevery.com/products/the-play-kits"
+  },
+  "jellycat-bunny": {
+    "image": "images/jellycat-bunny.jpg",
+    "url": "https://us.jellycat.com/bashful-beige-bunny/"
+  },
+  "quincy-mae": {
+    "image": "images/quincy-mae.jpg",
+    "url": "https://ryleeandcru.com/pages/quincy-mae"
+  },
+  "pehr-sleep-sack": {
+    "image": "images/pehr-sleep-sack.jpg",
+    "url": "https://pehr.com/products/1-0-tog-sleep-bag-floret"
+  },
+  "kyte-baby": {
+    "image": "images/kyte-baby.jpg",
+    "url": "https://kytebaby.com/products/bundler-in-oat"
+  }
+}

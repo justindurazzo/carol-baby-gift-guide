@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only" />
+<meta name="supported-color-schemes" content="light" />
+<title>Carol's Registry — A Considered Beginning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --bg: #ffffff;
+    --paper: #f5f3ef;
+    --ink: #1a1a1a;
+    --muted: #6b665e;
+    --rule: #e2ddd4;
+    --accent: #b04a2f;
+    --check: #2d5d3a;
+  }
+  html {
+    background: #ffffff;
+    color-scheme: light only;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(176, 74, 47, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(45, 93, 58, 0.03) 0%, transparent 50%);
+  }
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+  header {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 0.2s ease;
+  }
+  .back-link:hover { color: var(--ink); }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 9vw, 112px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    font-variation-settings: "SOFT" 50;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.45;
+    font-style: italic;
+  }
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .meta-item {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .meta-item strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+  .progress-strip {
+    margin-top: 40px;
+    height: 1px;
+    background: var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .progress-text {
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .progress-text span:last-child {
+    font-variant-numeric: tabular-nums;
+  }
+  section.category {
+    padding: 72px 0 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cat-head {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    align-items: baseline;
+  }
+  .cat-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .cat-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .cat-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 8px;
+    max-width: 480px;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .item {
+    padding: 24px 28px 24px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 64px 1fr auto auto;
+    gap: 20px;
+    align-items: start;
+    cursor: pointer;
+    transition: background 0.3s ease, padding 0.3s ease;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+  .item.no-thumb {
+    grid-template-columns: 1fr auto auto;
+  }
+  .item:hover {
+    background: var(--paper);
+    padding-left: 12px;
+  }
+  .thumb {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    flex-shrink: 0;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .item.no-thumb .thumb { display: none; }
+  .save {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: transparent;
+    margin-top: 4px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    position: relative;
+    align-self: start;
+  }
+  .item.claimed .save {
+    background: var(--check);
+    border-color: var(--check);
+  }
+  .item.claimed .save::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--bg);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .item-body { min-width: 0; }
+  .item-name {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    transition: text-decoration 0.3s ease;
+  }
+  .item.claimed .item-name {
+    text-decoration: line-through;
+    text-decoration-color: var(--muted);
+    color: var(--muted);
+  }
+  .item-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    line-height: 1.4;
+  }
+  .price-tier {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  footer {
+    padding: 96px 0 64px;
+    text-align: center;
+  }
+  .footer-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .footer-note {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .reset {
+    margin-top: 32px;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  header > * { animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+  header .eyebrow { animation-delay: 0.05s; }
+  header h1 { animation-delay: 0.15s; }
+  header .lede { animation-delay: 0.3s; }
+  header .meta-row { animation-delay: 0.45s; }
+  @media (max-width: 640px) {
+    .container { padding: 0 24px; }
+    header { padding: 56px 0 40px; }
+    .cat-head { grid-template-columns: 1fr; gap: 12px; }
+    .cat-num { font-size: 32px; }
+    .items { grid-template-columns: 1fr; }
+    .item { grid-template-columns: 48px 1fr auto auto; gap: 16px; }
+    .item.no-thumb { grid-template-columns: 1fr auto auto; }
+    .thumb { width: 48px; height: 48px; }
+  }
+</style>
+</head>
+<body class="grain">
+
+<div class="container">
+
+  <header>
+    <a href="index.html" class="back-link">← The welcome packet</a>
+    <div class="eyebrow">A Registry · Compiled with Care</div>
+    <h1>For the<br>littlest <em>arrival.</em></h1>
+    <p class="lede">A short, considered list for a modern parent who believes — like the rest of us do — that things you live with daily ought to be quietly beautiful.</p>
+    <div class="meta-row">
+      <div class="meta-item">Curated for<strong>Carol</strong></div>
+      <div class="meta-item">Aesthetic<strong>Less, but better.</strong></div>
+      <div class="meta-item">Categories<strong>Seven</strong></div>
+      <div class="meta-item">Tap to save<strong>↓</strong></div>
+    </div>
+    <div class="progress-strip"><div class="progress-fill" id="progress"></div></div>
+    <div class="progress-text">
+      <span>Saved</span>
+      <span><span id="claimed-count">0</span> / <span id="total-count">0</span></span>
+    </div>
+  </header>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">01</div>
+      <div>
+        <h2 class="cat-title">Sleep & Nursery</h2>
+        <p class="cat-desc">Where the days begin and end. Quiet, dim, and unfussy.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Premium" href="https://www.nanit.com/products/smart-baby-monitor" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/nanit-pro.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Nanit Pro Monitor</div><div class="item-note">A camera you don't mind seeing on the wall.</div></div><div class="price-tier">Premium</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Investment" href="https://www.happiestbaby.com/products/snoo-smart-bassinet" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/snoo-bassinet.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Snoo Smart Bassinet</div><div class="item-note">Or the Babybjörn Cradle for a calmer alternative.</div></div><div class="price-tier">Investment</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://www.hatch.co/rest-second-gen" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/hatch-rest.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Hatch Rest Sound Machine</div><div class="item-note">White noise and a glow, in one small object.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">02</div>
+      <div>
+        <h2 class="cat-title">Feeding</h2>
+        <p class="cat-desc">Vessels, bibs, and the small rituals of nourishment.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Easy" href="https://us.bibsworld.com/collections/pacifiers" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/bibs-pacifiers.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Bibs Pacifiers</div><div class="item-note">Danish, minimalist, in colors you'd actually choose.</div></div><div class="price-tier">Easy</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://booninc.com/boon-nursh-reusable-baby-bottles-with-platinum-food-safe-silicone-1-pack-8-oz/" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/boon-nursh.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Doddle &amp; Co or Boon Nursh Bottles</div><div class="item-note">Soft silicone, none of the plastic-toy energy.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://ezpzfun.com/products/mini-mat" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/ezpz-mini-mat.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Ezpz Placemat &amp; Bowl Set</div><div class="item-note">One piece. Suctions to the table. Solves a lot.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Easy" href="https://mushie.com/products/silicone-baby-bib" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/mushie-bibs.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Mushie or Bumkins Bibs</div><div class="item-note">Earth-toned, washable, unobtrusive.</div></div><div class="price-tier">Easy</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">03</div>
+      <div>
+        <h2 class="cat-title">Bath & Care</h2>
+        <p class="cat-desc">For the small, daily acts of tending.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Easy" href="https://frida.com/products/baby-basics-kit-youll-actually-use" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/frida-baby-kit.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Frida Baby Essentials Kit</div><div class="item-note">The NoseFrida is iconic for a reason.</div></div><div class="price-tier">Easy</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Easy" href="https://tubbytodd.com/products/all-over-ointment" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/tubby-todd-ointment.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Tubby Todd All-Over Ointment</div><div class="item-note">A jar people quietly become loyal to.</div></div><div class="price-tier">Easy</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://pehr.com/products/striped-hooded-towel" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/pehr-hooded-towel.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Pehr or Quincy Mae Hooded Towels</div><div class="item-note">Soft, neutral, the kind that age beautifully.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">04</div>
+      <div>
+        <h2 class="cat-title">Diapering</h2>
+        <p class="cat-desc">The unglamorous made graceful.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Mid" href="https://ubbiworld.com/products/ubbi-diaper-pail" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/ubbi-diaper-pail.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Ubbi Diaper Pail</div><div class="item-note">Steel. No plastic liner. Genuinely good-looking.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Subscribe" href="https://www.coterie.com/products/the-diaper" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/coterie-diapers.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Coterie or Dyper Diapers</div><div class="item-note">A subscription that quietly disappears into the routine.</div></div><div class="price-tier">Subscribe</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://esemblybaby.com/products/wipe-ups" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/esembly-wipes.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Esembly Cloth Wipes</div><div class="item-note">If she's the cloth-wipe type. Many are.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">05</div>
+      <div>
+        <h2 class="cat-title">On the Go</h2>
+        <p class="cat-desc">For leaving the house, which one does, eventually.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Investment" href="https://uppababy.com/strollers/full-size/vista-v3/greyson/" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/uppababy-vista.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Uppababy Vista or Bugaboo Fox Stroller</div><div class="item-note">Either way, an heirloom-quality piece of engineering.</div></div><div class="price-tier">Investment</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Investment" href="https://www.doona.com/en-us/car-seat-stroller/collections/doona-nitro-black" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/doona-carseat.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Doona Car Seat</div><div class="item-note">Folds into a stroller. Solves city life.</div></div><div class="price-tier">Investment</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Premium" href="https://beistravel.com/products/the-ultimate-diaper-backpack-in-black" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/beis-diaper-bag.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Béis or Fawn Design Diaper Bag</div><div class="item-note">Looks like a bag. Carries like a diaper bag.</div></div><div class="price-tier">Premium</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://wildbird.co/products/fawn-linen-sling" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/wildbird-sling.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Solly Baby or Wildbird Ring Sling</div><div class="item-note">Soft, gauzy, in the right hands almost a garment.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">06</div>
+      <div>
+        <h2 class="cat-title">Play & Soothing</h2>
+        <p class="cat-desc">Objects with quiet intention.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Premium" href="https://www.meetlalo.com/products/the-play-gym-1" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/lalo-play-gym.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Lalo Wooden Play Gym</div><div class="item-note">Pieces come off. Leaves the room when not in use.</div></div><div class="price-tier">Premium</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Subscribe" href="https://lovevery.com/products/the-play-kits" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/lovevery-play-kits.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Lovevery Play Kits Subscription</div><div class="item-note">Stage-appropriate, beautifully made, mercifully curated.</div></div><div class="price-tier">Subscribe</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Easy" href="https://us.jellycat.com/bashful-beige-bunny/" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/jellycat-bunny.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Jellycat Stuffed Animal</div><div class="item-note">The classic gift. There's a reason.</div></div><div class="price-tier">Easy</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="cat-head">
+      <div class="cat-num">07</div>
+      <div>
+        <h2 class="cat-title">Wardrobe Basics</h2>
+        <p class="cat-desc">What lives closest to the skin.</p>
+      </div>
+    </div>
+    <div class="items">
+      <a class="item" data-tier="Mid" href="https://ryleeandcru.com/pages/quincy-mae" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/quincy-mae.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Quincy Mae Onesies</div><div class="item-note">Bamboo. Whisper-soft. The neutrals are perfect.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://pehr.com/products/1-0-tog-sleep-bag-floret" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/pehr-sleep-sack.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Pehr Sleep Sacks</div><div class="item-note">Patterns that work in any nursery.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+      <a class="item" data-tier="Mid" href="https://kytebaby.com/products/bundler-in-oat" target="_blank" rel="noopener noreferrer"><div class="thumb"><img src="images/kyte-baby.jpg" alt="" loading="lazy" onerror="this.closest('.item').classList.add('no-thumb')"></div><div class="item-body"><div class="item-name">Kyte Baby Bamboo Set</div><div class="item-note">For the days you want softness above everything.</div></div><div class="price-tier">Mid</div><button class="save" type="button" aria-label="Save"></button></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-mark">— with love —</div>
+    <div class="footer-note">A registry compiled for Carol</div>
+    <button class="reset" id="reset">Reset saved items</button>
+  </footer>
+
+</div>
+
+<script>
+  const items = document.querySelectorAll('.item');
+  const progressFill = document.getElementById('progress');
+  const claimedCount = document.getElementById('claimed-count');
+  const totalCount = document.getElementById('total-count');
+  const resetBtn = document.getElementById('reset');
+  const STORAGE_KEY = 'carol-registry-claimed';
+
+  totalCount.textContent = items.length;
+
+  let claimed = new Set();
+  try {
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    claimed = new Set(stored);
+  } catch (e) {}
+
+  function updateUI() {
+    items.forEach((item, i) => {
+      if (claimed.has(i)) item.classList.add('claimed');
+      else item.classList.remove('claimed');
+    });
+    const pct = items.length ? (claimed.size / items.length) * 100 : 0;
+    progressFill.style.width = pct + '%';
+    claimedCount.textContent = claimed.size;
+  }
+
+  function persist() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...claimed])); } catch (e) {}
+  }
+
+  items.forEach((item, i) => {
+    const save = item.querySelector('.save');
+    save.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (claimed.has(i)) claimed.delete(i);
+      else claimed.add(i);
+      updateUI();
+      persist();
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    claimed.clear();
+    updateUI();
+    persist();
+  });
+
+  updateUI();
+</script>
+
+</body>
+</html>
